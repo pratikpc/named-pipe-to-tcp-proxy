@@ -52,5 +52,21 @@ struct Args {
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
     let args = Args::parse();
-    println!("Hello, world!");
+    use named_pipe_server::NamedPipeServerManager;
+    let mut server = NamedPipeServerManager::new(args.pipe);
+    loop {
+        // A client has connected to the server
+        let mut pipe_stream = server.accept().await.unwrap();
+        // Each Pipe Stream should have its own TCP Connection
+        // This makes it easier to logically read and write code
+        let mut tcp_stream = TcpStream::connect(&args.tcp).await.unwrap();
+        // Spawn a new Future to achieve concurrency
+        tokio::spawn(async move {
+            // Each connection should have its own Buffer
+            let mut buf = vec![0; 1024 * 8];
+            // Note that even if this returns an error we do not really care
+            // The only reason the let exists here is so we do not get warnings
+            let _ = splice(&mut pipe_stream, &mut tcp_stream, &mut buf).await;
+        });
+    }
 }
