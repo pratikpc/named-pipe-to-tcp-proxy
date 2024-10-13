@@ -1,3 +1,9 @@
+## 1.0.1 (2024-10-13)
+
+### Fix
+
+- **Named-Pipe-Server/new/Server-Options/Pipe-Mode**: switch from messages to bytes
+
 ## 1.0.0 (2024-10-13)
 
 ### BREAKING CHANGE
