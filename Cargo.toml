@@ -2,6 +2,11 @@
 name = "named-pipe-to-tcp-proxy"
 version = "0.1.0"
 edition = "2021"
+license = "BSD-3-Clause"
+keywords = ["cli", "named-pipes", "windows"]
+repository = "https://github.com/pratikpc/named-pipe-to-tcp-proxy"
+categories = ["command-line-utilities", "development-tools::cargo-plugins"]
+homepage = "https://in.linkedin.com/in/pratik-chowdhury-889bb2183"
 
 [dependencies]
 clap = { version = "4.5.20", features = ["derive"] }
