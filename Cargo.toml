@@ -7,6 +7,7 @@ keywords = ["cli", "named-pipes", "windows"]
 repository = "https://github.com/pratikpc/named-pipe-to-tcp-proxy"
 categories = ["command-line-utilities", "development-tools::cargo-plugins"]
 homepage = "https://in.linkedin.com/in/pratik-chowdhury-889bb2183"
+description = "Proxy all data from a Named Pipe to a specified TCP Proxy Server"
 
 [dependencies]
 clap = { version = "4.5.20", features = ["derive"] }
