@@ -19,6 +19,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
-      - run: cargo publish --token ${CRATES_TOKEN}
+      - shell: pwsh
+        run: cargo publish --token $env:CRATES_TOKEN
         env:
           CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
