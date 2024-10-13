@@ -5,7 +5,7 @@ use tokio::io::{self, AsyncWriteExt};
 /// Needed because Tokio Net does not have
 /// a trait for readable and try_read which means we have
 /// to create our own.  
-/// This helps us keep our code generic and independent of 
+/// This helps us keep our code generic and independent of
 /// specific handle abstractions.
 /// This would help us integrate additional handles in the future
 /// As and when needed
