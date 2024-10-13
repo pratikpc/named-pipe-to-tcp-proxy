@@ -31,13 +31,7 @@ impl NamedPipeServerManager {
     /// Create an object of the server manager
     /// * `name` The name of the Named Pipe this server has to bind to
     pub fn new(name: impl Into<String>) -> Self {
-        use tokio::net::windows::named_pipe::PipeMode;
-        Self::with_options(
-            name.into(),
-            named_pipe::ServerOptions::new()
-                .pipe_mode(PipeMode::Message)
-                .to_owned(),
-        )
+        Self::with_options(name.into(), named_pipe::ServerOptions::new())
     }
 
     /// Create an object of the server manager
